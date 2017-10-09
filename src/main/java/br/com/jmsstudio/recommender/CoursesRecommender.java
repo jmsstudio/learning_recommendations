@@ -10,14 +10,16 @@ import org.apache.mahout.cf.taste.recommender.Recommender;
 import java.io.IOException;
 import java.util.List;
 
-public class ProductsRecommender {
+public class CoursesRecommender {
+
     public static void main(String[] args) throws IOException, TasteException {
-        DataModel model = DataUtils.createDataModelFromFile("data.csv");
+        DataModel model = DataUtils.createDataModelFromFile("courses.csv");
         Recommender recommender = new CustomRecommenderBuilder().buildRecommender(model);
 
         List<RecommendedItem> recommendations = recommender.recommend(2, 3);
         for (RecommendedItem recommendation : recommendations) {
             System.out.println(recommendation);
         }
+
     }
 }
